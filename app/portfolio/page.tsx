@@ -178,7 +178,7 @@ export default function PortfolioPage() {
           <span className="text-[#EEEEEE]">Portfolio</span>
         </nav>
 
-        <h1 className="font-display mt-14 text-[clamp(3.25rem,10.5vw,9.5rem)] font-extrabold leading-[0.92] tracking-[-0.04em]">
+        <h1 className="font-display mt-10 text-[clamp(2.25rem,6.5vw,5.5rem)] font-extrabold leading-[0.92] tracking-[-0.04em]">
           <span className="line-mask block">
             <span className="line-up" style={{ animationDelay: "100ms" }}>Projects that</span>
           </span>
@@ -191,7 +191,7 @@ export default function PortfolioPage() {
         </h1>
 
         <div className="fade-in mt-12 grid gap-6 lg:grid-cols-12" style={{ animationDelay: "700ms" }}>
-          <p className="max-w-xl text-lg leading-relaxed text-[#EEEEEE]/70 lg:col-span-5 lg:col-start-8">
+          <p className="max-w-xl text-base leading-relaxed text-[#EEEEEE]/70 lg:col-span-5 lg:col-start-8">
             A curated showcase of our premium digital work — from sleek websites to powerful mobile apps and
             high-impact marketing campaigns.
           </p>
@@ -206,7 +206,7 @@ export default function PortfolioPage() {
               key={f}
               onClick={() => setActive(f)}
               aria-pressed={active === f}
-              className={`group relative shrink-0 py-5 text-base font-medium transition-colors duration-300 ${
+              className={`group relative shrink-0 py-4 text-sm font-medium transition-colors duration-300 ${
                 active === f ? "text-[#EEEEEE]" : "text-[#EEEEEE]/50 hover:text-[#EEEEEE]"
               }`}
             >
@@ -241,10 +241,10 @@ export default function PortfolioPage() {
               {/* row background wipe */}
               <span className="absolute inset-y-0 -inset-x-6 -z-0 origin-bottom scale-y-0 rounded-2xl bg-[#31363F] transition-transform duration-500 ease-out group-hover:scale-y-100 group-focus-within:scale-y-100 sm:-inset-x-10" />
 
-              <div className="relative grid items-start gap-x-8 gap-y-4 py-9 lg:grid-cols-12 lg:py-11">
+              <div className="relative grid items-start gap-x-8 gap-y-4 py-7 lg:grid-cols-12 lg:py-8">
                 {/* Title */}
                 <div className="lg:col-span-6">
-                  <h2 className="font-display text-3xl font-bold leading-tight tracking-tight transition-all duration-500 group-hover:translate-x-3 group-hover:text-[#76ABAE] group-focus-within:translate-x-3 sm:text-5xl">
+                  <h2 className="font-display text-xl font-bold leading-tight tracking-tight transition-all duration-500 group-hover:translate-x-3 group-hover:text-[#76ABAE] group-focus-within:translate-x-3 sm:text-3xl">
                     <Link href="/contact" className="outline-none after:absolute after:inset-0 after:content-['']">
                       {p.title}
                     </Link>
@@ -252,22 +252,22 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Meta */}
-                <div className="flex items-center gap-4 text-sm lg:col-span-3 lg:pt-3">
+                <div className="flex items-center gap-4 text-xs lg:col-span-3 lg:pt-1">
                   <span className="rounded-full border border-[#76ABAE]/40 px-3 py-1 font-medium text-[#76ABAE]">{p.tag}</span>
                   <span className="text-[#EEEEEE]/45">{p.year}</span>
                 </div>
 
                 {/* Arrow */}
                 <div className="hidden justify-end lg:col-span-3 lg:flex">
-                  <span className="grid h-14 w-14 place-items-center rounded-full border border-[#EEEEEE]/20 text-[#EEEEEE] transition-all duration-500 group-hover:rotate-45 group-hover:border-[#76ABAE] group-hover:bg-[#76ABAE] group-hover:text-[#222831] group-focus-within:rotate-45 group-focus-within:bg-[#76ABAE] group-focus-within:text-[#222831]">
-                    <ArrowUpRight size={24} />
+                  <span className="grid h-11 w-11 place-items-center rounded-full border border-[#EEEEEE]/20 text-[#EEEEEE] transition-all duration-500 group-hover:rotate-45 group-hover:border-[#76ABAE] group-hover:bg-[#76ABAE] group-hover:text-[#222831] group-focus-within:rotate-45 group-focus-within:bg-[#76ABAE] group-focus-within:text-[#222831]">
+                    <ArrowUpRight size={20} />
                   </span>
                 </div>
 
                 {/* Description: always visible on mobile, expands on hover on desktop */}
                 <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out lg:col-span-6 lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] lg:group-focus-within:grid-rows-[1fr]">
                   <div className="overflow-hidden">
-                    <p className="max-w-xl text-base leading-relaxed text-[#EEEEEE]/65">{p.text}</p>
+                    <p className="max-w-xl text-sm leading-relaxed text-[#EEEEEE]/65">{p.text}</p>
                   </div>
                 </div>
 
@@ -308,7 +308,7 @@ export default function PortfolioPage() {
               />
             ))}
           </div>
-          <p className="p-4 text-sm leading-relaxed text-[#EEEEEE]/75">{hoveredProject?.overlay}</p>
+          <p className="p-4 text-xs leading-relaxed text-[#EEEEEE]/75">{hoveredProject?.overlay}</p>
         </div>
       </div>
 
@@ -316,11 +316,11 @@ export default function PortfolioPage() {
       <section className="border-y border-[#EEEEEE]/10 bg-[#31363F]">
         <div className="mx-auto grid max-w-[88rem] divide-y divide-[#EEEEEE]/10 px-6 sm:px-10 md:grid-cols-3 md:divide-x md:divide-y-0">
           {stats.map((s) => (
-            <div key={s.label} className="py-14 md:px-10 md:first:pl-0 md:last:pr-0">
-              <p className="font-display text-7xl font-extrabold tracking-tight text-[#76ABAE] sm:text-8xl">
+            <div key={s.label} className="py-10 md:px-10 md:first:pl-0 md:last:pr-0">
+              <p className="font-display text-5xl font-extrabold tracking-tight text-[#76ABAE] sm:text-6xl">
                 <CountUp end={s.end} suffix={s.suffix} />
               </p>
-              <p className="mt-3 text-lg text-[#EEEEEE]/70">{s.label}</p>
+              <p className="mt-2 text-base text-[#EEEEEE]/70">{s.label}</p>
             </div>
           ))}
         </div>
@@ -328,29 +328,29 @@ export default function PortfolioPage() {
 
       {/* ───────────── CTA ───────────── */}
       <section className="bg-[#76ABAE] text-[#222831]">
-        <div className="mx-auto max-w-[88rem] px-6 py-24 sm:px-10 lg:py-32">
-          <h2 className="font-display max-w-5xl text-[clamp(2.5rem,7vw,6.5rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">
+        <div className="mx-auto max-w-[88rem] px-6 py-20 sm:px-10 lg:py-24">
+          <h2 className="font-display max-w-5xl text-[clamp(1.875rem,4.5vw,4rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">
             Let&apos;s build something amazing together.
           </h2>
 
           <div className="mt-12 flex flex-wrap items-end justify-between gap-10">
-            <p className="max-w-md text-lg leading-relaxed text-[#222831]/80">
+            <p className="max-w-md text-base leading-relaxed text-[#222831]/80">
               Ready to take your digital presence to the next level? Contact our team and let&apos;s make it happen.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-3 rounded-full bg-[#222831] py-3 pl-8 pr-3 text-lg font-semibold text-[#EEEEEE] transition-all duration-300 hover:gap-5 hover:bg-[#31363F]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#222831] py-2.5 pl-7 pr-2.5 text-base font-semibold text-[#EEEEEE] transition-all duration-300 hover:gap-5 hover:bg-[#31363F]"
               >
                 Get in touch
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-[#76ABAE] text-[#222831] transition-transform duration-500 group-hover:rotate-45">
-                  <ArrowUpRight size={22} />
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-[#76ABAE] text-[#222831] transition-transform duration-500 group-hover:rotate-45">
+                  <ArrowUpRight size={18} />
                 </span>
               </Link>
               <Link
                 href="/services"
-                className="rounded-full border-2 border-[#222831] px-8 py-4 text-lg font-semibold transition-colors duration-300 hover:bg-[#222831] hover:text-[#EEEEEE]"
+                className="rounded-full border-2 border-[#222831] px-7 py-3.5 text-base font-semibold transition-colors duration-300 hover:bg-[#222831] hover:text-[#EEEEEE]"
               >
                 View services
               </Link>
