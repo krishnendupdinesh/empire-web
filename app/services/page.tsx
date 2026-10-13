@@ -9,9 +9,10 @@ import {
     type ReactNode,
 } from "react";
 
-/* -------------------------------------------------------------------------- */
-/*  Data                                                                      */
-/* -------------------------------------------------------------------------- */
+
+/*  Data      
+                                                                */
+
 
 const stats = [
     { number: "9+", label: "Services offered" },
@@ -744,7 +745,9 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     return (
         <div
             ref={ref}
-            className={`sv-reveal sv-from-up ${inView ? "sv-in" : ""} ${service.span}`}
+            className={`sv-reveal sv-from-up h-full w-full ${
+    inView ? "sv-in" : ""
+}`}
             style={{ transitionDelay: `${(index % 3) * 130}ms` }}
         >
             <article
@@ -776,17 +779,15 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
                     </div>
 
                     <h3
-                        className={`sv-display mt-6 font-bold leading-tight text-[#EEEEEE] ${
-                            isWide ? "text-3xl sm:text-4xl" : "text-2xl"
-                        }`}
+                        className={`sv-display mt-6 font-bold leading-tight text-[#EEEEEE] ${isWide ? "text-3xl sm:text-4xl" : "text-2xl"
+                            }`}
                     >
                         {service.title}
                     </h3>
 
                     <p
-                        className={`mt-3 flex-1 leading-7 text-[#B3B8BD] ${
-                            isWide ? "max-w-xl text-base" : "text-[15px]"
-                        }`}
+                        className={`mt-3 flex-1 leading-7 text-[#B3B8BD] ${isWide ? "max-w-xl text-base" : "text-[15px]"
+                            }`}
                     >
                         {service.description}
                     </p>
@@ -839,6 +840,36 @@ export default function Services() {
     const shift = (depth: number): CSSProperties => ({
         transform: `translate(${parallax.x * depth}px, ${parallax.y * depth}px)`,
     });
+
+    const carouselRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+
+    const interval = window.setInterval(() => {
+        if (container.getAttribute("data-autoplay-paused") === "true") {
+            return;
+        }
+
+        const firstCard = container.firstElementChild as HTMLElement | null;
+        if (!firstCard) return;
+
+        const gap = 24; // gap-6 = 24px
+        const step = firstCard.getBoundingClientRect().width + gap;
+
+        const atEnd =
+            container.scrollLeft + container.clientWidth >=
+            container.scrollWidth - 10;
+
+        container.scrollTo({
+            left: atEnd ? 0 : container.scrollLeft + step,
+            behavior: "smooth",
+        });
+    }, 4000);
+
+    return () => window.clearInterval(interval);
+}, []);
 
     return (
         <main className="sv-root min-h-screen">
@@ -977,7 +1008,7 @@ export default function Services() {
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
-                        backgroundImage: "url('/images/services.webp')",
+                        backgroundImage: "url('/images/services.jpg')",
                         animation: "sv-ken 24s ease-in-out infinite alternate",
                     }}
                 />
@@ -991,9 +1022,8 @@ export default function Services() {
                     {stats.map((stat, i) => (
                         <Reveal key={stat.label} delay={i * 150} from="scale" className="h-full">
                             <div
-                                className={`flex h-full flex-col items-center justify-center px-6 py-8 text-center sm:py-0 ${
-                                    i > 0 ? "sm:border-l sm:border-[#EEEEEE]/15" : ""
-                                }`}
+                                className={`flex h-full flex-col items-center justify-center px-6 py-8 text-center sm:py-0 ${i > 0 ? "sm:border-l sm:border-[#EEEEEE]/15" : ""
+                                    }`}
                             >
                                 <span className="sv-display text-6xl font-extrabold text-[#EEEEEE] drop-shadow-[0_0_30px_rgba(118,171,174,.55)] sm:text-7xl">
                                     <AnimatedCounter value={stat.number} />
@@ -1037,52 +1067,84 @@ export default function Services() {
                         </Reveal>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-6">
-                        {services.map((service, i) => (
-                            <ServiceCard key={service.title} service={service} index={i} />
-                        ))}
-                    </div>
+                    <div
+    ref={carouselRef}
+    className="flex items-stretch gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide"
+>
+    {services.map((service, i) => (
+        <div
+            key={service.title}
+            className="flex w-[85%] flex-none snap-start sm:w-[48%] lg:w-[31%]"
+        >
+            <div className="h-full w-full">
+                <ServiceCard service={service} index={i} />
+            </div>
+        </div>
+    ))}
+</div>
                 </div>
             </section>
 
             {/* ============================ CTA ============================= */}
-            <section className="sv-cta relative isolate overflow-hidden border-b-4 border-[#76ABAE] px-5 py-28 text-center sm:px-8 sm:py-36">
-                <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+
+            <section className="sv-cta relative isolate mx-4 my-16 overflow-hidden rounded-3xl border border-[#76ABAE]/40 bg-[#20272F] px-5 py-20 text-center shadow-[0_0_40px_rgba(118,171,174,0.08)] sm:mx-8 sm:px-8 sm:py-28 lg:mx-auto lg:max-w-7xl">
+
+                {/* Background decorations */}
+                <div
+                    className="pointer-events-none absolute inset-0 -z-10"
+                    aria-hidden="true"
+                >
                     <div className="sv-cta-ring" />
-                    <div className="sv-blob sv-blob-a absolute -top-20 left-[10%] h-80 w-80 bg-[#76ABAE]/25" />
-                    <div className="sv-blob sv-blob-b absolute -bottom-24 right-[8%] h-96 w-96 bg-[#5C6676]/25" />
+                    <div className="sv-blob sv-blob-a absolute -top-20 left-[10%] h-72 w-72 rounded-full bg-[#76ABAE]/10 blur-3xl" />
+                    <div className="sv-blob sv-blob-b absolute -bottom-24 right-[8%] h-80 w-80 rounded-full bg-[#5C6676]/15 blur-3xl" />
                 </div>
 
+                {/* Subtle top border accent */}
+                <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-[#76ABAE]/80 to-transparent" />
+
                 <div className="mx-auto flex max-w-4xl flex-col items-center">
+
                     <Reveal from="scale">
-                        <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#76ABAE]/40 bg-[#76ABAE]/10 px-5 py-2 text-sm font-semibold text-[#B9D6D8]">
+                        <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#76ABAE]/30 bg-[#76ABAE]/10 px-5 py-2 text-sm font-semibold tracking-wide text-[#B9D6D8]">
                             <span className="sv-live-dot" />
                             Let&apos;s talk
                         </div>
                     </Reveal>
 
-                    <h2 className="sv-display text-4xl font-extrabold leading-[1.05] text-[#EEEEEE] sm:text-5xl md:text-7xl">
+                    <h2 className="sv-display text-4xl font-extrabold leading-[1.1] tracking-tight text-[#EEEEEE] sm:text-5xl md:text-7xl">
                         <WordsOnView text="Ready to build your" />
                         <br className="hidden sm:block" />
-                        <WordsOnView text="digital empire?" wordClassName="sv-grad-text" />
+                        <WordsOnView
+                            text="digital empire?"
+                            wordClassName="sv-grad-text"
+                        />
                     </h2>
 
                     <Reveal delay={300}>
-                        <p className="mt-8 max-w-2xl text-lg leading-8 text-[#EEEEEE]/80 sm:text-xl">
+                        <p className="mt-7 max-w-2xl text-base leading-8 text-[#EEEEEE]/70 sm:text-lg">
                             Contact our team today and let&apos;s turn your ideas into digital
                             reality.
                         </p>
                     </Reveal>
 
                     <Reveal delay={450} className="w-full sm:w-auto">
-                        <div className="mt-12 flex w-full flex-col items-center justify-center gap-5 sm:w-auto sm:flex-row">
-                            <Magnetic href="/contact/" className="sv-btn-primary w-full sm:w-auto">
+                        <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
+
+                            <Magnetic
+                                href="/contact/"
+                                className="sv-btn-primary w-full sm:w-auto"
+                            >
                                 <span className="relative z-10">Start a project</span>
                                 <ArrowIcon className="relative z-10 h-5 w-5" />
                             </Magnetic>
-                            <Magnetic href="tel:+0000000000" className="sv-btn-ghost w-full sm:w-auto">
+
+                            <Magnetic
+                                href="tel:+0000000000"
+                                className="sv-btn-ghost w-full sm:w-auto"
+                            >
                                 Call us now
                             </Magnetic>
+
                         </div>
                     </Reveal>
                 </div>
