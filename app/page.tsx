@@ -415,7 +415,7 @@ const TESTIMONIALS: Testimonial[] = [
   company: "",
   review:
     "Their digital marketing strategies improved our online visibility, attracted more potential customers, and helped our business grow through effective campaigns.",
-  image: "/images/logos/fira.png",
+  image: "/images/logos/Fira.png",
   //whiteMask: true,
 },
   {
@@ -505,16 +505,16 @@ const BRAND_GROUPS: Brand[][] = [
   [
     { name: "CAIOR", variant: "intel", src: "/images/logos/caior.png", colorMode: "theme", scale: 1 },
     { name: "Charmika", variant: "youtube", src: "/images/logos/Charmika.png", scale: 1 },
-    { name: "Credtree", variant: "netflix", src: "/images/logos/credtree.png", scale: 1 },
+    { name: "Credtree", variant: "netflix", src: "/images/logos/credtree.png", scale: 1.5 },
     { name: "Fira", variant: "amazon", src: "/images/logos/Fira.png", colorMode: "theme", scale: 1 },
-    { name: "Devamshi", variant: "ford", src: "/images/logos/Devamshi.png", scale: 1 },
+    { name: "Devamshi", variant: "ford", src: "/images/logos/Devamshi.png", scale: 1.5 },
     { name: "EGL", variant: "samsung", src: "/images/logos/EGL.png", scale: 1 },
   ],
   [
     { name: "Elaamy", variant: "ea", src: "/images/logos/Elaamy.png", scale: 1 },
     { name: "Ethenzaa", variant: "nike", src: "/images/logos/Ethenzaa.png", scale: 1 },
-    { name: "Nakshathra HRMS", variant: "aol", src: "/images/logos/Nakshathra_Hrms.png", colorMode: "theme", scale: 1 },
-    { name: "Indoor Petals", variant: "gucci", src: "/images/logos/kerala_institute_sales_app.png", scale: 1 }, // sizing reference
+    { name: "Nakshathra HRMS", variant: "aol", src: "/images/logos/Nakshathra_Hrms.png", colorMode: "theme", scale: 2 },
+    { name: "Indoor Petals", variant: "gucci", src: "/images/logos/kerala_institute_sales_app.png", scale: 1.4 }, // sizing reference
     { name: "Gabby Talk", variant: "mcdonalds", src: "/images/logos/gabby_talk.png", scale: 1 },
     { name: "HeartMate", variant: "microsoft", src: "/images/logos/suchiGo.png", scale: 1 },
   ],
