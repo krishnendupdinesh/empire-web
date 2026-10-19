@@ -54,33 +54,33 @@ const HERO_SLIDES: HeroSlide[] = [
   {
     video: "/videos/homevideo1.mp4",
     poster: "/videos/hero-1.jfif",
-    title: "Digital Solutions That Put You Ahead",
-    text: "Empire AE delivers innovative digital solutions that empower businesses to grow and succeed.",
+    title: "",
+    text: "",
     cta: "",
     href: "",
   },
   {
-    video: "/videos",
+    video: "/videos/homevideo1.mp4",
     poster: "/videos/hero-1.jfif",
-    title: "Websites Built to Convert",
+    title: "",
     text: "",
-    cta: "Explore web design",
+    cta: "",
     href: "/services",
   },
   {
-    video: "/videos",
+    video: "/videos/homevideo1.mp4",
     poster: "/videos/hero-1.jfif",
-    title: "Apps People Love to Use",
-    text: "Powerful Android and iOS apps engineered for seamless experiences and real business growth.",
-    cta: "See mobile apps",
+    title: "",
+    text: "",
+    cta: "",
     href: "/services",
   },
   {
-    video: "/videos",
+    video: "/videos/homevideo1.mp4",
     poster: "/videos/hero-1.jfif",
-    title: "Growth You Can Measure",
-    text: "SEO and digital marketing strategies that raise your visibility and bring customers to your door.",
-    cta: "Grow with us",
+    title: "",
+    text: "",
+    cta: "",
     href: "/services",
   },
 ];
@@ -189,7 +189,7 @@ function VideoHero() {
       </div>
 
       {/* "Next" card with thumbnail + progress bars (hidden on phones) */}
-      <div className="absolute bottom-8 right-20 hidden w-[min(300px,36vw)] overflow-hidden bg-[#222831]/70 backdrop-blur-md sm:flex lg:right-[8%] lg:w-[min(300px,24vw)]">
+      {/* <div className="absolute bottom-8 right-20 hidden w-[min(300px,36vw)] overflow-hidden bg-[#222831]/70 backdrop-blur-md sm:flex lg:right-[8%] lg:w-[min(300px,24vw)]">
         <button
           type="button"
           onClick={advance}
@@ -215,7 +215,7 @@ function VideoHero() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* progress bars for phones (the "Next" card is hidden there) */}
       <div className="absolute bottom-[3.75rem] left-5 right-5 flex gap-2 sm:hidden">
