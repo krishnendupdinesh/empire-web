@@ -82,7 +82,7 @@ const PAGES = [
  *  number:  country code + number, digits only (no "+", spaces or dashes)
  *  message: text that is pre-filled in the chat box (the visitor can edit it)
  */
-const WHATSAPP = { number: "919999999999", message: "Hi Empire AE, I'd like to discuss a project." };
+const WHATSAPP = { number: "9895366760", message: "Hi Empire AE, I'd like to discuss a project." };
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(WHATSAPP.message)}`;
 
 /* ---- search index ---- */
@@ -192,7 +192,7 @@ const LOGO = { src: "images/logo.png", alt: "Empire AE", recolor: true };
 
 function Logo() {
   // Height of the logo. The width follows automatically from the logo's shape.
-  const size = "h-15 w-auto sm:h-16 lg:h-17";
+  const size = "h-28 w-auto sm:h-29 lg:h-30";
   if (!LOGO.recolor) {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={LOGO.src} alt={LOGO.alt} className={`block ${size}`} />;

@@ -60,7 +60,7 @@ const HERO_SLIDES: HeroSlide[] = [
     href: "",
   },
   {
-    video: "/videos/video.mp4",
+    video: "/videos",
     poster: "/videos/hero-1.jfif",
     title: "Websites Built to Convert",
     text: "",
@@ -68,7 +68,7 @@ const HERO_SLIDES: HeroSlide[] = [
     href: "/services",
   },
   {
-    video: "/videos/video.mp4",
+    video: "/videos",
     poster: "/videos/hero-1.jfif",
     title: "Apps People Love to Use",
     text: "Powerful Android and iOS apps engineered for seamless experiences and real business growth.",
@@ -76,7 +76,7 @@ const HERO_SLIDES: HeroSlide[] = [
     href: "/services",
   },
   {
-    video: "/videos/hero-4.mp4",
+    video: "/videos",
     poster: "/videos/hero-1.jfif",
     title: "Growth You Can Measure",
     text: "SEO and digital marketing strategies that raise your visibility and bring customers to your door.",

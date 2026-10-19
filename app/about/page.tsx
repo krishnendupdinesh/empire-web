@@ -543,7 +543,7 @@ function Hero() {
         >
           <p className="mb-3 text-sm text-[#6b6b6b] md:mb-4 md:text-base">{HERO.since}</p>
           <h1
-            className={`${headingClass} max-w-4xl text-[clamp(2.25rem,7vw,6.5rem)] leading-[0.95]`}
+            className={`${headingClass} max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.95]`}
           >
             {HERO.title}
           </h1>
