@@ -17,7 +17,7 @@ type Member = { name: string; role: string; image: string };
 const TEAM_QUOTE = "Behind every successful project is a team that refuses to settle.";
 
 const TEAM: Member[] = [
-  { name: "Meera M", role: "sr.Graphic Designer", image: "/team/PHOTO-ONE/PHOTO ONE/photos-02.webp" },
+  { name: "Meera M", role: "sr.Graphic Designer", image: "/team/PHOTO-ONE/PHOTO ONE/photos-02.jpg" },
   { name: "Alpha Nelson", role: "Graphic Designer", image: "team/PHOTO-ONE/PHOTO ONE/photos-12.jpg" },
   { name: "Arya P U", role: "Graphic Designer", image: "team/PHOTO-ONE/PHOTO ONE/photos-11.jpg" },
   // { name: "Arjun Shaji", role: "Digital Marketing Executive", image: "team/PHOTO-ONE/PHOTO ONE/photos-02.jpg" },
